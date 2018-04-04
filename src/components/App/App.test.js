@@ -11,7 +11,7 @@ describe('Домашнее задание', () => {
     });
 
     it('div содержит p с классом description', () => {
-      expect(wrapper.find('div.App p')).toHaveLength(1);
+      expect(wrapper.find('div.App p.description')).toHaveLength(1);
     });
 
     it('p.description содержит текст: Миру-мир, студентам - beer.', () => {
