@@ -16,11 +16,10 @@ class Chat extends Component {
     if (event.key === 'Enter') {
       this.setState(state => {
         const msg = { text: state.messageInput };
-        const messages = state.messages;
-        messages.push(msg);
+        const messages = [msg, ...state.messages];
 
         return {
-          messages: messages,
+          messages,
           messageInput: ''
         };
       });
@@ -34,7 +33,7 @@ class Chat extends Component {
       <div className="chat">
         <div className="message-list">
           <div className="messages">
-            {messages.map(msg => <Message key={msg.text} text={msg.text}/>)}
+            {messages.map((msg, index) => <Message key={index} text={msg.text}/>)}
           </div>
         </div>
         <input className="input-message"
