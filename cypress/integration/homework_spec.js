@@ -23,9 +23,9 @@ describe('Домашнее задание 3го занятия', function() {
     });
 
     it('Если заполнить форму правильно, кнопку next можно нажать', () => {
-      cy.get('[data-test="personal-form"] [name="firstName"]').type('Al');
-      cy.get('[data-test="personal-form"] [name="lastName"]').type('Pacino');
-      cy.get('[data-test="personal-form"] [name="email"]').type('al@pacino.com');
+      cy.get('.personal-form > [name="firstName"]').type('Al');
+      cy.get('.personal-form > [name="lastName"]').type('Pacino');
+      cy.get('.personal-form > [name="email"]').type('al@pacino.com');
       cy.get('.button-next').should('not.have.attr', 'disabled');
     });
   });
@@ -33,9 +33,9 @@ describe('Домашнее задание 3го занятия', function() {
   describe('Card info', () => {
     beforeEach(() => {
       cy.visit('/');
-      cy.get('[data-test="personal-form"] [name="firstName"]').type('Al');
-      cy.get('[data-test="personal-form"] [name="lastName"]').type('Pacino');
-      cy.get('[data-test="personal-form"] [name="email"]').type('al@pacino.com');
+      cy.get('.personal-form > [name="firstName"]').type('Al');
+      cy.get('.personal-form > [name="lastName"]').type('Pacino');
+      cy.get('.personal-form > [name="email"]').type('al@pacino.com');
       cy.get('.button-next').click({ force: true });
     });
 
@@ -44,7 +44,7 @@ describe('Домашнее задание 3го занятия', function() {
     });
 
     it('Если записать 16 цифр, кнопку next можно нажать', () => {
-      cy.get('[data-test="card-form"] [name="cardNumber"]').type('1234123412341234');
+      cy.get('.card-form > [name="cardNumber"]').type('1234123412341234');
       cy.get('.button-next').should('not.have.attr', 'disabled');
     });
   });
@@ -52,11 +52,11 @@ describe('Домашнее задание 3го занятия', function() {
   describe('Congratulations', () => {
     beforeEach(() => {
       cy.visit('/');
-      cy.get('[data-test="personal-form"] [name="firstName"]').type('Al');
-      cy.get('[data-test="personal-form"] [name="lastName"]').type('Pacino');
-      cy.get('[data-test="personal-form"] [name="email"]').type('al@pacino.com');
+      cy.get('.personal-form > [name="firstName"]').type('Al');
+      cy.get('.personal-form > [name="lastName"]').type('Pacino');
+      cy.get('.personal-form > [name="email"]').type('al@pacino.com');
       cy.get('.button-next').click({ force: true });
-      cy.get('[data-test="card-form"] [name="cardNumber"]').type('1234123412341234');
+      cy.get('.card-form > [name="cardNumber"]').type('1234123412341234');
       cy.get('.button-next').click({ force: true });
     });
 
