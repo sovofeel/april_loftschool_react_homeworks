@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Title from '../Title/Title';
+
 import './CardForm.css';
 
 class CardForm extends React.PureComponent {
@@ -27,11 +29,14 @@ class CardForm extends React.PureComponent {
 
   render () {
     return (
-      <div className="card-form">
-        <input name="cardNumber"
-          onChange={this.handleChangeForm}
-          value={this.props.cardNumber}
-          placeholder="0000000000000000"/>
+      <div data-test="card-form">
+        <Title>Номер карты</Title>
+        <div className="card-form">
+          <input name="cardNumber"
+            onChange={this.handleChangeForm}
+            value={this.props.cardNumber}
+            placeholder="0000000000000000"/>
+        </div>
       </div>
     );
   }

@@ -3,7 +3,6 @@ import React from 'react';
 import PersonalForm from '../PersonalForm/PersonalForm';
 import CardForm from '../CardForm/CardForm';
 import Step from '../Step/Step';
-import Title from '../Title/Title';
 
 
 import './App.css';
@@ -71,8 +70,6 @@ class App extends React.PureComponent {
           <Step number={3} isSelected={step === 3} onClick={this.handleTabClick}>Finish</Step>
         </div>
         <div className="form-content">
-          {step === 1 ? <Title>Персональная информация</Title> : ''}
-          {step === 2 ? <Title>Номер карты</Title> : ''}
           {this.renderForm()}
         </div>
         <div className="button-panel">
