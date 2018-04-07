@@ -4,12 +4,6 @@ import Title from "../Title";
 
 class PersonalForm extends Component {
 
-  state = {
-    firstName: "",
-    lastName: "",
-    email: ""
-  };
-
   handleChangeForm = (e) => {
     this.props.onChangeForm(e.target.name, e.target.value);
   };
