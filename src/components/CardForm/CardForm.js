@@ -16,7 +16,7 @@ class CardForm extends Component {
     return (
       <div>
         <Title text="Номер карты"/>
-        <div className="card-form">
+        <div className="card-form" data-test="card-form">
           <input type="text" onChange={this.handleChangeForm} name="cardNumber" value={this.props.cardNumber}
                  placeholder="cardNumber"/>
         </div>

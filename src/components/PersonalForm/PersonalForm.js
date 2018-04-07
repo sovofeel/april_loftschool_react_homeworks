@@ -14,7 +14,7 @@ class PersonalForm extends Component {
     return (
       <div>
         <Title text="Персональная информация"/>
-        <div className="personal-form">
+        <div className="personal-form" data-test="personal-form">
           <input type="text" onChange={this.handleChangeForm} name="firstName" value={firstName} placeholder="First name"/>
           <input type="text" onChange={this.handleChangeForm} name="lastName" value={lastName} placeholder="Last name"/>
           <input type="text" onChange={this.handleChangeForm} name="email" value={email} placeholder="email"/>
