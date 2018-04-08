@@ -43,7 +43,7 @@ describe('Компонента Chat', () => {
   });
 
   describe('Поведение компоненты', () => {
-    it('При вводе значения в input, оно сохраняется в state.messageInput', () => {
+    it('При вводе значения в input, оно сохраняется в state.~', () => {
       const wrapper = shallow(<Chat />);
 
       wrapper
