@@ -17,7 +17,13 @@ class App extends React.Component{
       lastName: '',
       email: '',
 			cardNumber: '',
-    };
+		};
+		
+		this.steps = [
+			{text: 'Personal information'},
+			{text: 'Card information'},
+			{text: 'Finish'}
+		]
 	}
 
 
@@ -43,20 +49,27 @@ class App extends React.Component{
 	isFormCommitable = () => {
 		const {step, firstName, lastName, email, cardNumber} = this.state
 
-		switch(step){
-			case 1:
-				if(firstName !== '' && lastName !== '' && email !== '' && email.includes('@')){
-					return true
-				}
-				return false
-			case 2:
-				if(cardNumber.length === 16){
-					return true
-				}
-				return false
-			default:
-				return false
-		}
+		return (
+			((step === 1) && (firstName !== '' && lastName !== '' && email !== '' && email.includes('@'))) ||
+			((step === 2) && (cardNumber.length === 16)) ||
+			false
+		)
+
+
+		// switch(step){
+		// 	case 1:
+		// 		if(firstName !== '' && lastName !== '' && email !== '' && email.includes('@')){
+		// 			return true
+		// 		}
+		// 		return false
+		// 	case 2:
+		// 		if(cardNumber.length === 16){
+		// 			return true
+		// 		}
+		// 		return false
+		// 	default:
+		// 		return false
+		// }
 	}
 
 
@@ -101,15 +114,23 @@ class App extends React.Component{
 
 	render(){
 
-		const { handleClickNextForm, renderForm, handleTabClick, isFormCommitable } = this
-		const { step}  = this.state
+		const { handleClickNextForm, renderForm, handleTabClick, isFormCommitable, steps } = this
+		const { step }  = this.state
 		
 		return (
 			<div className="container">
 				<div className="tab-panel">
-					<Step isSelected={1 === step} isClickable={1 < step} number="1" onClick={handleTabClick}>Personal information</Step>
-					<Step isSelected={2 === step} isClickable={2 < step} number="2" onClick={handleTabClick}>Card information</Step>
-					<Step isSelected={3 === step} isClickable={3 < step} number="3" onClick={handleTabClick}>Finish</Step>
+					{steps.map( (item, idx) => {
+						idx = idx + 1 
+
+						return <Step 
+							isSelected={idx === step}
+							isClickable={idx < step} number={idx} 
+							onClick={handleTabClick}
+							key={item.text + idx}>
+								{item.text}
+							</Step>
+					})}
 				</div>
 
 				<div className="form-content">
