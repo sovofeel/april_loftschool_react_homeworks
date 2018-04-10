@@ -54,22 +54,6 @@ class App extends React.Component{
 			((step === 2) && (cardNumber.length === 16)) ||
 			false
 		)
-
-
-		// switch(step){
-		// 	case 1:
-		// 		if(firstName !== '' && lastName !== '' && email !== '' && email.includes('@')){
-		// 			return true
-		// 		}
-		// 		return false
-		// 	case 2:
-		// 		if(cardNumber.length === 16){
-		// 			return true
-		// 		}
-		// 		return false
-		// 	default:
-		// 		return false
-		// }
 	}
 
 
