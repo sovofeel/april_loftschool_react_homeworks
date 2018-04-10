@@ -15,7 +15,7 @@ class App extends Component {
 
   handleTabClick = (currentStep) => {
     if (currentStep) {
-      this.setState(state => ({step: currentStep}));
+      this.setState({step: currentStep});
     }
   }
 
@@ -28,12 +28,7 @@ class App extends Component {
   isFormCommitable = () => {
     const {step, firstName, lastName, email, cardNumber} = this.state;
 
-    if (step === 1 && firstName !== '' && lastName !== '' && email !== '' && email.includes('@')) {
-      return true;
-    } else if (step === 2 && cardNumber.length === 16) {
-      return true;
-    }
-    return false;
+    return ((step === 1 && firstName !== '' && lastName !== '' && email !== '' && email.includes('@')) || (step === 2 && cardNumber.length === 16) || false);
 
   }
 
@@ -43,21 +38,6 @@ class App extends Component {
       this.setState(state => ({
         step: step + 1
       }));
-    }
-  }
-
-  stepTitle = (step) => {
-    switch (step) {
-      case 1:
-        return 'Персональная информация';
-        break;
-      case 2:
-        return 'Номер карты';
-        break;
-      case 3:
-        return 'Результат';
-      default:
-        return ''
     }
   }
 
@@ -80,27 +60,31 @@ class App extends Component {
     }
     return null;
   }
+
+  steps = ['Персональная информация', 'Номер карты', 'Результат']
   render() {
     const {step} = this.state;
     return <div className='container'>
-      <div className='tab-panel'>{[1, 2, 3].map(item =>< Step key = {
-          item
-        }
-        number = {
-          item
-        }
-        children = {
-          this.stepTitle(item)
-        }
-        isSelected = {
-          item === step
-        }
-        isClickable = {
-          item < step
-        }
-        onClick = {
-          this.handleTabClick
-        } />)}
+      <div className='tab-panel'>{this
+          .steps
+          .map((item, idx) =>< Step key = {
+            idx
+          }
+          number = {
+            idx + 1
+          }
+          children = {
+            item
+          }
+          isSelected = {
+            idx + 1 === step
+          }
+          isClickable = {
+            idx <= step
+          }
+          onClick = {
+            this.handleTabClick
+          } />)}
       </div>
       <div className='form-content'>
         {this.renderForm()}
