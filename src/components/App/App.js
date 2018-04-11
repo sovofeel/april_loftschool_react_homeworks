@@ -67,19 +67,26 @@ class App extends React.PureComponent {
 
   render () {
     const { step } = this.state;
+    const tabPanels = [
+      { number: 1, title: 'Personal information' },
+      { number: 2, title: 'Card information' },
+      { number: 3, title: 'Finish' }
+    ];
 
     return(
       <div className="container">
         <div className="tab-panel">
-          <Step number={1} isClickable={step > 1} isSelected={step === 1} onClick={this.handleTabClick}>
-            Personal information
-          </Step>
-          <Step number={2} isClickable={step > 2} isSelected={step === 2} onClick={this.handleTabClick}>
-            Card information
-          </Step>
-          <Step number={3} isSelected={step === 3} onClick={this.handleTabClick}>
-            Finish
-          </Step>
+          {tabPanels.map((v, i) =>
+            <Step
+              key={v.number}
+              number={v.number}
+              isClickable={step > v.number}
+              isSelected={step === v.number}
+              onClick={this.handleTabClick}
+            >
+              {v.title}
+            </Step>
+          )}
         </div>
         <div className="form-content">
           {this.renderForm()}
