@@ -10,10 +10,10 @@ class VideoPlayer extends PureComponent {
   }
 
   handleClick = (e) => {
-    if (e.target.value === 'Play') {
-      this.video.play();
+    if (e.target.dataset.trig === 'play') {
+      this.video.current.play();
     } else {
-      this.video.pause();
+      this.video.current.pause();
     }
   }
 
@@ -24,8 +24,8 @@ class VideoPlayer extends PureComponent {
           <source src={videoFile} type='video/mp4'/>
         </video>
         <div>
-          <button onClick={this.handleClick}>Play</button>
-          <button onClick={this.handleClick}>Stop</button>
+          <button onClick={this.handleClick} data-trig='play'>Play</button>
+          <button onClick={this.handleClick} data-trig='pause'>Stop</button>
         </div>
       </div>
     );
