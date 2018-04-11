@@ -5,19 +5,17 @@ import CardNumberInput from './CardNumberInput'
 
 class CardNumberHolder extends Component {
 
-  constructor(props){
-    super(props)
+  static displayName = 'Card number formating'
 
-    this.state = {
-      cardNumber: ''
-    }
+  state = {
+    cardNumber: ''
   }
+  
 
-
-  handleChange = (e) => {
+  handleChange = (cardNumber) => {
     this.setState({
       ...this.state,
-      cardNumber: e.target.value
+      cardNumber: cardNumber
     })
   }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { createPortal } from 'react-dom'
 
 class Modal extends Component {
 
@@ -8,6 +9,7 @@ class Modal extends Component {
     const { props:{ children } } = this
 
     return (
+      createPortal(
       <div className="modal">
         <div className="modal__fog">
           <div className="modal__body">
@@ -15,6 +17,7 @@ class Modal extends Component {
           </div>
         </div>
       </div>
+      ,document.getElementById('portal'))
     )
   }
 }

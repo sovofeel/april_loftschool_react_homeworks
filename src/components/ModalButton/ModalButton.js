@@ -3,17 +3,10 @@ import Modal from './Modal'
 import './ModalButton.css';
 
 
-
-
-
 class ModalButton extends Component {
 
-  constructor(props){
-    super(props)
-
-    this.state = {
-      isModalShow: false
-    }
+  state = {
+    isModalShow: false
   }
 
 
@@ -34,13 +27,13 @@ class ModalButton extends Component {
 
   render() {
 
-    const { state:{isModalShow}, showModal, hideModal  } = this 
+    const { showModal  } = this 
 
     return(
       <div>
         <button onClick={showModal}>Show modal!</button>
         {this.state.isModalShow ? 
-            <Modal>
+            <Modal rootId='portal'>
               <h1>Модальное окно!</h1>
               <button onClick={ this.hideModal }>Close</button>
             </Modal>
