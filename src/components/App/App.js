@@ -3,7 +3,7 @@ import './App.css';
 import Switcher from '../Switcher'
 import VideoPlayer from '../VideoPlayer'
 import CardNumberHolder from '../CardNumberHolder'
-
+import ModalButton from '../ModalButton'
 
 
 
@@ -19,7 +19,8 @@ class App extends Component {
 		return (
 			<Switcher>
 				{/* <VideoPlayer /> */}
-				<CardNumberHolder/>
+				{/* <CardNumberHolder/> */}
+				<ModalButton />
 			</Switcher>
 		)
   }
