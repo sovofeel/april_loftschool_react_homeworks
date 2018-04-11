@@ -21,7 +21,7 @@ class App extends React.PureComponent {
   }
 
   handleTabClick = (step) => {
-    this.setState({ step: step });
+    this.setState({ step });
   }
 
   handleChangeForm = (name, value) => {
@@ -29,30 +29,36 @@ class App extends React.PureComponent {
   }
 
   isFormCommitable = () => {
-    if (this.state.step === 1 && (this.state.firstName !== '' && this.state.lastName !== '' && this.state.email !== '' && this.state.email.includes('@'))) {
+    const { step, firstName, lastName, email, cardNumber } = this.state;
+
+    if (step === 1
+      && (firstName !== '' && lastName !== '' && email !== '' && email.includes('@'))) {
       return true;
-    } else if (this.state.step === 2 && (this.state.cardNumber.length === 16)) {
+    } else if (step === 2
+      && (cardNumber.length === 16)) {
       return true;
     }
     return false;
   }
 
   renderForm = () => {
-    if (this.state.step === 1) {
+    const { step, firstName, lastName, email, cardNumber } = this.state;
+
+    if (step === 1) {
       return (
         <PersonalForm
-          firstName={this.state.firstName}
-          lastName={this.state.lastName}
-          email={this.state.email}
+          firstName={firstName}
+          lastName={lastName}
+          email={email}
           onChangeForm={this.handleChangeForm} />
       );
-    } else if (this.state.step === 2) {
+    } else if (step === 2) {
       return (
         <CardForm
-          cardNumber={this.state.cardNumber}
+          cardNumber={cardNumber}
           onChangeForm={this.handleChangeForm} />
       );
-    } else if (this.state.step === 3) {
+    } else if (step === 3) {
       return (
         <p data-test="congratulations">Поздравляем!</p>
       );
@@ -65,9 +71,15 @@ class App extends React.PureComponent {
     return(
       <div className="container">
         <div className="tab-panel">
-          <Step number={1} isClickable={step > 1} isSelected={step === 1} onClick={this.handleTabClick}>Personal information</Step>
-          <Step number={2} isClickable={step > 2} isSelected={step === 2} onClick={this.handleTabClick}>Card information</Step>
-          <Step number={3} isSelected={step === 3} onClick={this.handleTabClick}>Finish</Step>
+          <Step number={1} isClickable={step > 1} isSelected={step === 1} onClick={this.handleTabClick}>
+            Personal information
+          </Step>
+          <Step number={2} isClickable={step > 2} isSelected={step === 2} onClick={this.handleTabClick}>
+            Card information
+          </Step>
+          <Step number={3} isSelected={step === 3} onClick={this.handleTabClick}>
+            Finish
+          </Step>
         </div>
         <div className="form-content">
           {this.renderForm()}

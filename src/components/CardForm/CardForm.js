@@ -12,13 +12,13 @@ class CardForm extends React.PureComponent {
     }
   }
 
-  constructor (props) {
-    super(props);
-    console.log('constructor');
-  }
+  // constructor (props) {
+  //   super(props);
+  //   console.log('constructor for tests');
+  // }
 
   componentWillUnmount () {
-    console.log('componentWillUnmount');
+    // console.log('componentWillUnmount for tests');
   }
 
   handleChangeForm = (event) => {
