@@ -80,7 +80,7 @@ class App extends Component {
             idx + 1 === step
           }
           isClickable = {
-            idx <= step
+            idx < step
           }
           onClick = {
             this.handleTabClick

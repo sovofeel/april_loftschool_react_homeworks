@@ -12,7 +12,7 @@ class PersonalForm extends Component {
 
   render() {
     const {firstName, lastName, email} = this.props;
-    return <div>
+    return <div data-test="personal-form">
       <h1 className="title">Персональная информация</h1>
       <div className='personal-form'>
         <input
