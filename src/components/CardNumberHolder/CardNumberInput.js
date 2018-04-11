@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Fragment, Component} from 'react';
 
 class CardNumberInput extends Component {
   state = {
@@ -6,11 +6,11 @@ class CardNumberInput extends Component {
   }
 
   format = (number) => {
-    if (number === null) {
+    if (number == null) {
       return '';
     }
     number = typeof number === 'number' ? number.toString() : number;
-
+    
     let newNum = Array.prototype.map.call(number, (symbol, ndx) => {
       if (ndx % 4 || 0 === ndx) {
         return symbol
@@ -42,10 +42,22 @@ class CardNumberInput extends Component {
     const { onChange } = this.props;
     onChange(this.normalize(e.target.value));
   };
+
+  componentDidMount() {
+    const { cardNumber } = this.props;
+
+    this.setState({
+      number: this.format(cardNumber)
+    })
+  }
   
   render() {
     const { number } = this.state;
-    return <input type="text" onChange={this.handleChange} value={number}/>;
+    return ( 
+      <Fragment>
+        <input type="text" onChange={this.handleChange} value={number}/>
+      </Fragment>
+    )
   }
 }
 
