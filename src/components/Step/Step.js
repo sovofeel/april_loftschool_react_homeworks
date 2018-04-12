@@ -5,9 +5,7 @@ class Step extends Component {
   handleClick = (ev) => {
     const {isClickable, onClick, number} = this.props;
     if (isClickable) {
-      this
-        .props
-        .onClick(number);
+      onClick(number);
     }
   }
   render() {
