@@ -58,9 +58,9 @@ class App extends Component {
   };
 
   handleClickNextForm = () => {
-    // if (this.isFormCommitable()) {
-      this.setState({step: this.state.step + 1});
-    // }
+    this.setState((prevState, props) => ({
+      step: prevState.step + 1
+    }));
   };
 
   handleTabClick = (step) => {
