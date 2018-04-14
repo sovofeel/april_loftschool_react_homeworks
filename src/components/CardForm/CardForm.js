@@ -3,6 +3,8 @@ import './CardForm.css'
 
 class CardForm extends Component {
 
+  componentWillUnmount() {}
+
   handleChangeForm = (e) => {
     const {name, value} = e.target;
     this.props.onChangeForm(name, value)
