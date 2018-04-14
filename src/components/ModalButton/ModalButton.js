@@ -5,7 +5,6 @@ import Modal from './Modal';
 import './ModalButton.css';
 
 class ModalButton extends Component {
-  static displayName = 'ModalButton';
   state = {
     isModalShow: false
   }
@@ -15,7 +14,6 @@ class ModalButton extends Component {
   }
 
   showModal = () => {
-    console.log('showModal');
     this.setState({ isModalShow: true });
   }
 

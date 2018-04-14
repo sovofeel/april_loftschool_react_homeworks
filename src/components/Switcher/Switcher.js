@@ -12,9 +12,6 @@ class Switcher extends Component {
     selectedChild: 0
   }
 
-  // changePage = (selectedChild) => {
-  //   this.setState({ selectedChild });
-  // }
   handleChangeChild = (e) => {
     const page = Number(e.target.dataset.id);
     this.setState({ selectedChild: page });
@@ -24,7 +21,6 @@ class Switcher extends Component {
     const { children } = this.props;
     const { selectedChild } = this.state;
 
-    // onClick={() => this.changePage(index)}
     const links = React.Children.map(children, (item, index) => (
       <li
         className="component-list__name"

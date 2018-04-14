@@ -33,7 +33,6 @@ class CardNumberInput extends Component {
     return result;
   }
 
-  // onChangeHandler
   onChange = (event) => {
     const cardNumber = this.normalize(event.target.value);
 
