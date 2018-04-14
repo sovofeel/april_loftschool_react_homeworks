@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
-
 const { Provider, Consumer } = React.createContext({ isAuthorized: false });
 
-
-// к сожалению тест раннер еще не готов к тестам с новым контекстом
-// по этому тут так много кода, изучайте как следует!
-// немного кода я все таки вырезал ^^
+const VALID_NAME = 'student';
+const VALID_PASSWORD = '123';
 class AuthorizeProvider extends Component {
+  state = {
+    isAuthorized: false,
+  };
+
+  authorizeUser = (name, password) => {
+    const isValid = this.isValid(name, password);
+    this.setState(() => ({ isAuthorized: isValid }));
+
+    return isValid;
+  };
+
+  isValid(name, password) {
+    return name === VALID_NAME && password === VALID_PASSWORD;
+  }
+
   render() {
     const { children } = this.props;
     const { isAuthorized } = this.state;
