@@ -11,12 +11,12 @@ class Switcher extends Component {
 
   handleChangeChild = (e) => {
     this.setState({
-      selectedChild: +e.target.dataset.id
+      selectedChild: Number(e.target.dataset.id)
     })
   }
 
   childrenIterator = (child, ndx) => {
-    const text = child.type.displayName ? child.type.displayName : child.type.name;
+    const text = child.type.displayName || child.type.name;
 
     return (
       <li 

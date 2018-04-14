@@ -10,7 +10,7 @@ class CardNumberHolder extends Component {
 
   handleChange = (cardNumber) => {
     this.setState({
-      cardNumber: cardNumber
+      cardNumber
     })
   }
   render() {
