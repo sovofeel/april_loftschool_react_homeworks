@@ -5,10 +5,9 @@ class PersonalForm extends Component {
 
   handleChangeForm = (e) => {
     const {name, value} = e.target;
-    this
-      .props
-      .onChangeForm(name, value)
-  }
+
+    this.props.onChangeForm(name, value)
+  };
 
   render() {
     const {firstName, lastName, email} = this.props;

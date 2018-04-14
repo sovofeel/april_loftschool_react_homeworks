@@ -12,7 +12,7 @@ class App extends Component {
     firstName: '',
     lastName: '',
     email: '',
-    cardNumber: ''
+    cardNumber: '',
   }
 
   handleTabClick = (currentStep) => {
@@ -23,7 +23,7 @@ class App extends Component {
 
   handleChangeForm = (name, value) => {
     if (this.isFormCommitable) {
-      this.setState({[name]: value});
+      this.setState({ [name]: value });
     }
   }
 
@@ -34,7 +34,7 @@ class App extends Component {
 
   }
 
-  handleClickNextForm = (e) => {
+  handleClickNextForm = () => {
     const {step} = this.state;
     if (step < 3) {
       this.setState(state => ({
@@ -54,8 +54,7 @@ class App extends Component {
     } else if (step === 2) {
       return <CardForm
         cardNumber={cardNumber}
-        onChangeForm={this.handleChangeForm}
-        onChangeTimeOver={this.handleChangeTimeOver}/>
+        onChangeForm={this.handleChangeForm} />
     }
     if (step === 3) {
       return <p data-test="congratulations">Поздравляем!</p>
@@ -67,6 +66,14 @@ class App extends Component {
 
   render() {
     const {step} = this.state;
+
+    const button = (this.state.step === 3 ? true : false) ?  ("") : (
+        <button
+            className='button-next'
+            onClick={this.handleClickNextForm}
+            disabled={!this.isFormCommitable()}> Далее
+        </button>
+    );
 
     return (
       <div className='container'>
@@ -83,10 +90,7 @@ class App extends Component {
         </div>
         <div className='form-content'> { this.renderForm() } </div >
           <div className='button-panel'>
-            <button
-              className='button-next'
-              onClick={this.handleClickNextForm}
-              disabled={!this.isFormCommitable()}>Далее</button>
+              { button }
           </div>
       </div>
     )
