@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Order from '../Order';
+import { moveOrderToCustomer } from '../../actions/farmActions';
 
 import './Farm.css';
 
@@ -40,4 +42,16 @@ export class Farm extends Component {
   }
 }
 
-export default Farm;
+const mapStateToProps = state => ({
+  // farm: state.farm
+  ...state.farm
+});
+
+const mapDispatchToProps = {
+  moveOrderToCustomer
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Farm);

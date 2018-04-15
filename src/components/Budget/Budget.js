@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './Budget.css';
 
@@ -16,4 +17,14 @@ export const Budget = ({ profit, marketExpanse, farmExpanse, deliveryExpanse }) 
   </div>
 );
 
-export default Budget;
+const mapStateToProps = state => ({
+  // budget: state.budget
+  ...state.budget
+});
+
+const mapDispatchToProps = {};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Budget);
