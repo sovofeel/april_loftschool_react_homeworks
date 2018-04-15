@@ -1,11 +1,19 @@
-import React, {Component} from 'react';
-import Switcher from '../Switcher'
+import React, { Component } from 'react';
+import Switcher from '../Switcher';
 import './App.css';
+import VideoPlayer from './../VideoPlayer';
+import CardNumberHolder from './../CardNumberHolder';
+import ModalButton from './../ModalButton';
 
 class App extends Component {
   render() {
-    return <Switcher/>;
+    return (
+      <Switcher>
+        <VideoPlayer />
+        <CardNumberHolder />
+        <ModalButton />
+      </Switcher>
+    );
   }
 }
-
 export default App;
