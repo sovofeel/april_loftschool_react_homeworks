@@ -16,23 +16,21 @@ class App extends Component {
   }
 
   handleTabClick = (currentStep) => {
-    if (currentStep) {
       this.setState({step: currentStep});
-    }
-  }
+  };
 
   handleChangeForm = (name, value) => {
     if (this.isFormCommitable) {
       this.setState({ [name]: value });
     }
-  }
+  };
 
   isFormCommitable = () => {
     const {step, firstName, lastName, email, cardNumber} = this.state;
 
     return ((step === 1 && firstName !== '' && lastName !== '' && email !== '' && email.includes('@')) || (step === 2 && cardNumber.length === 16) || false);
 
-  }
+  };
 
   handleClickNextForm = () => {
     const {step} = this.state;
@@ -41,7 +39,7 @@ class App extends Component {
         step: step + 1
       }));
     }
-  }
+  };
 
   renderForm = () => {
     const {step, firstName, lastName, email, cardNumber} = this.state;
@@ -60,9 +58,9 @@ class App extends Component {
       return <p data-test="congratulations">Поздравляем!</p>
     }
     return null;
-  }
+  };
 
-  steps = ['Персональная информация', 'Номер карты', 'Результат'];
+  stepsTitle = ['Персональная информация', 'Номер карты', 'Результат'];
 
   render() {
     const {step} = this.state;
@@ -78,7 +76,7 @@ class App extends Component {
     return (
       <div className='container'>
         <div className='tab-panel'>
-            { this.steps.map(( item, index ) =>
+            { this.stepsTitle.map(( item, index ) =>
                 < Step
                     key = { index }
                     number = { index + 1 }
