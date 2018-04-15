@@ -12,19 +12,19 @@ const farmReducer = (state = initState, action) => {
     case MOVE_ORDER_TO_CUSTOMER:
       return {
         ...state,
-        deliveryExpanse: state.deliveryExpanse - 20
+        deliveryExpanse: state.deliveryExpanse + 20
       };
     case CREATE_ORDER:
       const price = action.payload.price;
       return {
         ...state,
         profit: state.profit + price,
-        marketExpanse: state.marketExpanse - 20
+        marketExpanse: state.marketExpanse + 20
       };
     case MOVE_ORDER_TO_FARM:
       return {
         ...state,
-        farmExpanse: state.farmExpanse - 100
+        farmExpanse: state.farmExpanse + 100
       };
     default:
       return state;
