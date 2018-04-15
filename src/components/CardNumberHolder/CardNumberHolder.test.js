@@ -10,7 +10,7 @@ describe('Компонент CardNumberHolder', () => {
         expect(wrapper.find('CardNumberInput')).toHaveLength(1);
       });
 
-      it('Компоненту CardNumberInput передается метод CardNumberHolder.handleChange в props.onChange', () => {
+      it('Компоненту CardNumberInput передается метод CardNumberHolder.handleChange в props.handleChange', () => {
         const el = wrapper.find('CardNumberInput');
         expect(el.props().onChange).toEqual(wrapper.instance().handleChange);
       });
