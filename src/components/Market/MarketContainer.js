@@ -19,4 +19,4 @@ function putDispatchToProps(dispatch){
   }
 }
 
-export default connect(putStateToProps,putDispatchToProps)(Market)
+export default connect(putStateToProps, putDispatchToProps)(Market)

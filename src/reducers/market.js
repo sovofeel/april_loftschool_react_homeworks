@@ -2,7 +2,6 @@
 import { 
 	CREATE_ORDER,
 	MOVE_ORDER_TO_FARM,
-	//DELETE_ORDER_FROM_MARKET
 } from '../actions/marketTypes'
 
 

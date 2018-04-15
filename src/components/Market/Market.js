@@ -45,17 +45,26 @@ export class Market extends Component {
     createdAt={createdAt}
   />);
 
-  //ordersToFarm = () => 
+  ordersToFarm = () => {
+    const { props: {moveOrderToFarm, marketList } } = this
+    const firstItem = marketList[0]
+
+    moveOrderToFarm(firstItem)
+  }
 
   render() {
-    const { addOrder, renderOrderList, props: {marketList} } = this;
+    const { addOrder, renderOrderList, ordersToFarm,  props: {marketList} } = this;
     return (
       <div className="market">
         <h2>Новые заказы в магазине</h2>
         <button className="new-orders__create-button" onClick={addOrder}>
           Создать заказ
         </button>
-        <button disabled={!marketList.length}>Отправить заказ на ферму</button>
+        <button 
+          disabled={!marketList.length}
+          onClick={ordersToFarm}>
+          Отправить заказ на ферму
+        </button>
         <div className="order-list">{renderOrderList()}</div>
       </div>
     );

@@ -8,9 +8,9 @@ export function createOrder(value) {
 	}
 }
 
-export function moveOrderToFarm(value) {
+export function moveOrderToFarm(item) {
 	return {
 		type: MOVE_ORDER_TO_FARM,
-		payload: value
+		payload: item
 	}
 }
