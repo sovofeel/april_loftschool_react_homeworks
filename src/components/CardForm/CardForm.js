@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './CardForm.css'
 
+import Title from 'components/Title';
+
 class CardForm extends Component {
 
   componentWillUnmount() {}
@@ -14,7 +16,7 @@ class CardForm extends Component {
     const {cardNumber} = this.props;
     return (
       <div className="card-form" data-test="card-form">
-        <h1 className="title">Номер карты</h1>
+        <Title> Номер карты </Title>
         <input
           name="cardNumber"
           value={cardNumber}

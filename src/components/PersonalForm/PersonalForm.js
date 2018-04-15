@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './PersonalForm.css'
 
+import Title from 'components/Title';
+
 class PersonalForm extends Component {
 
   handleChangeForm = (e) => {
@@ -15,7 +17,7 @@ class PersonalForm extends Component {
     return (
       <div>
         <div className='personal-form' data-test="personal-form">
-          <h1 className="title">Персональная информация</h1>
+          <Title> Персональная информация </Title>
           <input
             name='firstName'
             value={firstName}
