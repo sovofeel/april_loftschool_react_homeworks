@@ -26,11 +26,11 @@ class Chat extends React.Component {
   }
 
   render = () => {
-  	const messages = this.state.messages
+    const {messages, messageInput} = this.state
     return (
       {messages.map((msg,idx) => <Message key={idx+text} text={msg.text}/>)}
       <div className="chat">
-      	<input className={"input-message"} value={this.state.messageInput} onChange={this.changeInputMessage} onKeyPress={this.sendMessageOnEnter}/>
+      	<input className={"input-message"} value={messageInput} onChange={this.changeInputMessage} onKeyPress={this.sendMessageOnEnter}/>
       </div>
     );
   }
