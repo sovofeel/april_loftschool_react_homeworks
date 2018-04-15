@@ -1,13 +1,52 @@
 import React, { Component } from 'react';
-import './App.css';
+import { connect } from 'react-redux';
+
+import { createOrder, moveOrderToFarm } from '../../actions/marketActions';
+import { moveOrderToCustomer } from '../../actions/farmActions';
 import Market from '../Market';
 import Farm from '../Farm';
 import Budget from '../Budget';
 
+import './App.css';
+
 export class App extends Component {
   render() {
-    return <div className="app" />;
+    // console.log('APP', this.props);
+    const { market, createOrder, moveOrderToFarm } = this.props;
+    const { farm, moveOrderToCustomer } = this.props;
+    const { budget } = this.props;
+
+    return (
+      <div className="app">
+        <Market {...market}
+          createOrder={createOrder}
+          moveOrderToFarm={moveOrderToFarm}
+        />
+        <Farm {...farm}
+          moveOrderToCustomer={moveOrderToCustomer}
+        />
+        <Budget {...budget} />
+      </div>
+    );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  market: state.market,
+  farm: state.farm,
+  budget: state.budget
+});
+
+const mapDispatchToProps = {
+  createOrder,
+  moveOrderToFarm,
+  moveOrderToCustomer
+};
+
+// prettier-ignore
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
+
+// export default App;
