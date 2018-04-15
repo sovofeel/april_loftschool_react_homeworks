@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Market.css';
+import Order from '../Order';
 
 let id = 0;
 
@@ -33,8 +34,31 @@ const getNewOrder = () => {
 };
 
 export class Market extends Component {
+  addOrder = () => {
+    this.props.createOrder(getNewOrder());
+  };
+
+  renderOrderList = () => this.props.marketList.map(({id, name, price, createdAt}) => <Order 
+    key={id} 
+    name={name} 
+    price={price}
+    createdAt={createdAt}
+  />);
+
+  //ordersToFarm = () => 
+
   render() {
-    return <div className="market" />;
+    const { addOrder, renderOrderList, props: {marketList} } = this;
+    return (
+      <div className="market">
+        <h2>Новые заказы в магазине</h2>
+        <button className="new-orders__create-button" onClick={addOrder}>
+          Создать заказ
+        </button>
+        <button disabled={!marketList.length}>Отправить заказ на ферму</button>
+        <div className="order-list">{renderOrderList()}</div>
+      </div>
+    );
   }
 }
 
