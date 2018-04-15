@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { AuthHOC } from 'components/AuthorizeProvider';
 
 class PrivateRoute extends PureComponent {
   render () {
-    const { isAuthorized, component: Component } = this.props;
+    const { isAuthorized, path, component: Component } = this.props;
 
     // component name need be UpperCase!
     return !isAuthorized
       ? <Redirect to="/login" />
-      : <Component/>;
+      : <Route to={path} component={Component} />; // : <Component/>;
   }
 }
 

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { AuthHOC } from 'components/AuthorizeProvider';
 import { Redirect } from 'react-router-dom';
 
+import ErrorMessage from './ErrorMessage';
+
 class Login extends Component {
   state = {
     email: '',
@@ -30,9 +32,9 @@ class Login extends Component {
         <div>
           <input name="email" onChange={this.handleChange}/>
           <input name="password" onChange={this.handleChange}/>
-          {isValid === false && (
-            <p class="error">Неверный пароль и/или почта.</p>
-          )}
+          <ErrorMessage show={isValid === false}>
+            Неверный пароль и/или почта.
+          </ErrorMessage>
         </div>
         <button onClick={this.handleClick}>
           Submit
