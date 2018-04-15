@@ -6,8 +6,8 @@ class Modal extends Component {
   render () {
     const { children, show } = this.props;
 
-    return show
-      ? ReactDOM.createPortal(
+    if (show) {
+      return ReactDOM.createPortal(
         <div className="modal">
           <div className="modal__fog">
             <div className="modal__body">
@@ -16,8 +16,10 @@ class Modal extends Component {
           </div>
         </div>,
         document.getElementById('portal')
-      )
-      : null;
+      );
+    } else {
+      return null;
+    }
   }
 }
 
