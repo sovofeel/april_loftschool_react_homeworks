@@ -1,12 +1,6 @@
 import { CREATE_ORDER, MOVE_ORDER_TO_FARM } from '../actions/marketTypes';
 
-/*
-market: {
-    orders: []
-  },
-*/
 const marketReducer = (state = { orders: [] }, action) => {
-  // console.log({ state, action });
   switch (action.type) {
     case CREATE_ORDER:
       return {

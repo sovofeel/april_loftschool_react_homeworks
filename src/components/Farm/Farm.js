@@ -7,7 +7,6 @@ import './Farm.css';
 export class Farm extends Component {
 
   onMoveOrderToCustomer = () => {
-    // console.log('onMoveOrderToCustomer', this);
     const { orders, moveOrderToCustomer } = this.props;
     const order = orders.slice(-1)[0];
 

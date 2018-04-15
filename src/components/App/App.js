@@ -11,7 +11,6 @@ import './App.css';
 
 export class App extends Component {
   render() {
-    // console.log('APP', this.props);
     const { market, createOrder, moveOrderToFarm } = this.props;
     const { farm, moveOrderToCustomer } = this.props;
     const { budget } = this.props;
@@ -48,5 +47,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App)
-
-// export default App;

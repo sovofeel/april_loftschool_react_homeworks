@@ -1,15 +1,6 @@
-// import { MOVE_ORDER_TO_FARM, MOVE_ORDER_TO_CUSTOMER } from '../actions/farmTypes';
 import { MOVE_ORDER_TO_CUSTOMER } from '../actions/farmTypes';
 import { CREATE_ORDER, MOVE_ORDER_TO_FARM }  from '../actions/marketTypes';
 
-/*
- budget: {
-  profit: 170,
-  marketExpanse: 20,
-  farmExpanse: 100,
-  deliveryExpanse: 20
-}
-*/
 const initState = {
   profit: 0,
   marketExpanse: 0,
@@ -17,8 +8,6 @@ const initState = {
   deliveryExpanse: 0
 };
 const farmReducer = (state = initState, action) => {
-  // console.log('initState', initState);
-  // console.log({ state, action });
   switch (action.type) {
     case MOVE_ORDER_TO_CUSTOMER:
       return {

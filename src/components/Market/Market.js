@@ -36,9 +36,6 @@ const getNewOrder = () => {
 };
 
 export class Market extends Component {
-  // state = {
-  //   orders: []
-  // }
 
   onCreateOrder = () => {
     const { createOrder } = this.props;
@@ -55,7 +52,6 @@ export class Market extends Component {
   }
 
   render () {
-    // console.log('Market', this.props);
     const { orders } = this.props;
 
     return (
