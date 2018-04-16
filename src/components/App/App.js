@@ -73,9 +73,9 @@ class App extends Component {
     if (step === 1) {
       return (
         <PersonalForm
-          firstName={firstName}
-          lastName={lastName}
           email={email}
+          lastName={lastName}
+          firstName={firstName}
           onChangeForm={this.handleChangeForm}
         />
       );
