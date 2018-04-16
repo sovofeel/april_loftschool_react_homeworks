@@ -3,6 +3,7 @@ import { MOVE_ORDER_TO_CUSTOMER } from '../actions/farmTypes'
 
 const initState = {
   profit: 0,
+  marketExpanse: 0,
   deliveryExpanse: 0,
   farmExpanse: 0
 }
@@ -12,7 +13,8 @@ const budgetReducer = (state = initState, action) => {
     case CREATE_ORDER:
       return {
         ...state,
-        profit: state.profit + action.payload.profit
+        profit: state.profit + action.payload.price,
+        marketExpanse: state.marketExpanse + 20
       }
     case MOVE_ORDER_TO_CUSTOMER:
       return {

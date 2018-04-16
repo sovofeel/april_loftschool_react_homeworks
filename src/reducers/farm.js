@@ -5,14 +5,12 @@ const initState = {
   orders: []
 }
 
-let id = 0;
-
 const farmReducer = (state = initState, action) => {
   switch (action.type) {
     case MOVE_ORDER_TO_FARM:
       return {
         ...state,
-        orders: [...state.orders, {id: id++, name: action.payload.name}]
+        orders: [...state.orders, action.payload]
       }
     case MOVE_ORDER_TO_CUSTOMER:
       return {
