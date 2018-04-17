@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { correctData } from 'constants/data';
 
 const { Provider, Consumer } = React.createContext({
   isAuthorized: false,
@@ -13,13 +14,7 @@ class AuthorizeProvider extends Component {
   };
 
   authorizeUser = (email, password) => {
-    const correctEmail = 'student';
-    const correctPassword = '123';
-
-    if (
-      email === correctEmail &&
-      password === correctPassword
-    ) {
+    if (email === correctData.email && password === correctData.password) {
       this.setState({ isAuthorized: true });
       return true;
     }

@@ -3,17 +3,12 @@ import Public from 'components/Public';
 import Login from 'components/Login';
 import PrivateRoute from 'components/PrivateRoute';
 import Private from 'components/Private';
+import { links } from 'constants/links';
 import { Link, Route, Switch, withRouter } from 'react-router-dom';
 import { AuthorizeProvider } from 'components/AuthorizeProvider';
 
 export class App extends PureComponent {
   render() {
-    const links = [
-      { link: '/login', value: 'Войти' },
-      { link: '/private', value: 'Секретная страница' },
-      { link: '/', value: 'Главная' },
-    ];
-
     return (
       <AuthorizeProvider>
         <div>

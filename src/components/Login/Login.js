@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Error from 'components/Error';
 import { AuthHOC } from 'components/AuthorizeProvider';
 import { Redirect } from 'react-router-dom';
 
@@ -17,9 +18,7 @@ class Login extends Component {
     const { email, password } = this.state;
     const { authorizeUser } = this.props;
 
-    authorizeUser(email, password);
-
-    if (!authorizeUser()) {
+    if (!authorizeUser(email, password)) {
       this.setState({ error: true });
     }
   };
@@ -30,23 +29,14 @@ class Login extends Component {
     return (
       <div>
         <div>
-          <input
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-          />
+          <input name="email" value={email} onChange={this.handleChange} />
           <input
             name="password"
             value={password}
             onChange={this.handleChange}
           />
         </div>
-        {(error && (
-          <p className="error">
-            Неверный пароль и/или почта.
-          </p>
-        )) ||
-          null}
+        <Error error={error} />
         <button onClick={this.handleSubmit}>Submit</button>
       </div>
     );
@@ -55,11 +45,7 @@ class Login extends Component {
   render() {
     const { isAuthorized } = this.props;
 
-    return isAuthorized ? (
-      <Redirect to="/" />
-    ) : (
-      this.renderForm()
-    );
+    return (isAuthorized && <Redirect to="/" />) || this.renderForm();
   }
 }
 
