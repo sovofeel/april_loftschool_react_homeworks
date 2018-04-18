@@ -1,9 +1,6 @@
 import { connect } from 'react-redux'
 import Budget from './Budget'
 
-import { moveOrderToCustomer } from '../../actions/farmActions'
-//import { moveOrderToFarm } from '../../actions/marketActions'
-
 
 function putStateToProps(state){
   return {
@@ -12,10 +9,4 @@ function putStateToProps(state){
 }
 
 
-function putDispatchToProps(dispatch){
-  return {
-    //moveOrderToCustomer: bindActionCreators(moveOrderToCustomer, dispatch),
-  }
-}
-
-export default connect(putStateToProps,putDispatchToProps)(Budget)
+export default connect(putStateToProps)(Budget)
