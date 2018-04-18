@@ -17,14 +17,13 @@ export const Budget = ({ profit, marketExpanse, farmExpanse, deliveryExpanse }) 
   </div>
 );
 
-const mapStateToProps = state => ({
-  // budget: state.budget
-  ...state.budget
+const mapStateToProps = ({budget: { profit, marketExpanse, farmExpanse, deliveryExpanse }}) => ({
+  profit,
+  marketExpanse,
+  farmExpanse,
+  deliveryExpanse
 });
 
-const mapDispatchToProps = {};
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Budget);

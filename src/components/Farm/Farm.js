@@ -43,8 +43,7 @@ export class Farm extends Component {
 }
 
 const mapStateToProps = state => ({
-  // farm: state.farm
-  ...state.farm
+  orders: state.farm.orders
 });
 
 const mapDispatchToProps = {

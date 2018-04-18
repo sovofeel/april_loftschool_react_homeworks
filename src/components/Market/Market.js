@@ -87,8 +87,7 @@ export class Market extends Component {
 }
 
 const mapStateToProps = state => ({
-  // market: state.market
-  ...state.market
+  orders: state.market.orders
 });
 
 const mapDispatchToProps = {
