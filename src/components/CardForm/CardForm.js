@@ -3,11 +3,6 @@ import './CardForm.css';
 import Title from '../Title';
 
 class CardForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   componentWillUnmount() {}
 
   handleChangeForm = e => {

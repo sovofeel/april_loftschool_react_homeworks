@@ -5,21 +5,18 @@ import CardForm from '../CardForm';
 import Step from '../Step';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      step: 1,
-      firstName: '',
-      lastName: '',
-      email: '',
-      cardNumber: '',
-      tabs: [
-        { number: 1, text: 'Персональная Информация' },
-        { number: 2, text: 'Номер Карты' },
-        { number: 3, text: 'Поздравляем' },
-      ],
-    };
-  }
+  state = {
+    step: 1,
+    firstName: '',
+    lastName: '',
+    email: '',
+    cardNumber: '',
+    tabs: [
+      { number: 1, text: 'Персональная Информация' },
+      { number: 2, text: 'Номер Карты' },
+      { number: 3, text: 'Поздравляем' },
+    ],
+  };
 
   handleTabClick = tabIndex => {
     this.setState({ step: tabIndex });
