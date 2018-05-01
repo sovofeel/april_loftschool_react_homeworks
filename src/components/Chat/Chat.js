@@ -3,13 +3,10 @@ import Message from '../Message';
 import './Chat.css';
 
 class Chat extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      messages: [],
-      messageInput: '',
-    };
-  }
+  state = {
+    messages: [],
+    messageInput: '',
+  };
 
   changeInputMessage = e => {
     const { value } = e.target;
@@ -33,7 +30,7 @@ class Chat extends Component {
         <div className="message-list">
           <div className="messages">
             {messages.map((item, index) => (
-              <Message text={item.text} key={item.text} />
+              <Message text={item.text} key={index} />
             ))}
           </div>
         </div>
