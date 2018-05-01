@@ -10,7 +10,7 @@ class Switcher extends Component {
   };
 
   handleChangeChild = e => {
-    e.persist();
+    e.preventDefault();
     this.setState(prevState => ({ selectedChild: e.target.getAttribute('data-id') }));
   };
 
@@ -19,23 +19,17 @@ class Switcher extends Component {
     const { selectedChild } = this.state;
 
     return (
-      <Fragment>
-        <div className="switcher">
-          <nav className="component-list">
-            {React.Children.map(childrens, (child, index) => (
-              <span
-                className="component-list__name"
-                onClick={this.handleChangeChild}
-                data-id={index}
-              >
-                {child.type.displayName || child.type.name}
-              </span>
-            ))}
-          </nav>
-          <hr />
-          <div className="component-wrapper">{childrens[selectedChild]}</div>
-        </div>
-      </Fragment>
+      <div className="switcher">
+        <nav className="component-list">
+          {React.Children.map(childrens, (child, index) => (
+            <span className="component-list__name" onClick={this.handleChangeChild} data-id={index}>
+              {child.type.displayName || child.type.name}
+            </span>
+          ))}
+        </nav>
+        <hr />
+        <div className="component-wrapper">{childrens[selectedChild]}</div>
+      </div>
     );
   }
 }

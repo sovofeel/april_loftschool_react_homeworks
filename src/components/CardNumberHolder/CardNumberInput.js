@@ -6,8 +6,6 @@ class CardNumberInput extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-
     this.setState(prevState => ({ number: this.format(nextProps.cardNumber) }));
   }
 
