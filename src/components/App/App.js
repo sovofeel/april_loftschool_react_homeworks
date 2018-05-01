@@ -69,6 +69,15 @@ class App extends Component {
         );
       case 3:
         return <p data-test="congratulations">Поздравляем!</p>;
+      default:
+        return (
+          <PersonalForm
+            firstName={firstName}
+            lastName={lastName}
+            email={email}
+            onChangeForm={this.handleChangeForm}
+          />
+        );
     }
   };
 
