@@ -29,9 +29,11 @@ class Login extends Component {
     const { isAuthorized } = this.props;
     const { isValid } = this.state;
 
-    return isAuthorized ? (
-      <Redirect to="/" />
-    ) : (
+    if (isAuthorized) {
+      return <Redirect to="/" />;
+    }
+
+    return (
       <div>
         <input name="email" onChange={this.handleChange} />
         <input name="password" onChange={this.handleChange} />
