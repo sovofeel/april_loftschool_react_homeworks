@@ -10,7 +10,7 @@ class Switcher extends Component {
   };
 
   handleChangeChild = e => {
-    e.preventDefault();
+    e.persist();
     this.setState(prevState => ({ selectedChild: e.target.getAttribute('data-id') }));
   };
 
