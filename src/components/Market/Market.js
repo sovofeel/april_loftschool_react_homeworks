@@ -57,8 +57,6 @@ export class Market extends Component {
   render() {
     const { orders } = this.props;
 
-    console.log(this.props);
-
     return (
       <div className="market">
         <h2>Магазин</h2>
@@ -73,7 +71,7 @@ export class Market extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...state.market,
+  orders: state.market.orders,
 });
 
 const mapDispatchToProps = {

@@ -25,7 +25,10 @@ export const Budget = ({ profit, marketExpanse, deliveryExpanse, farmExpanse }) 
 );
 
 const mapStateToProps = state => ({
-  ...state.budget,
+  profit: state.budget.profit,
+  marketExpanse: state.budget.marketExpanse,
+  farmExpanse: state.budget.farmExpanse,
+  deliveryExpanse: state.budget.deliveryExpanse,
 });
 
-export default connect(mapStateToProps, null)(Budget);
+export default connect(mapStateToProps)(Budget);
