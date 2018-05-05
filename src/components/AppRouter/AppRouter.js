@@ -14,8 +14,8 @@ class AppRouter extends Component {
     return (
       <StyledApp className="App">
         <Switch>
-          <Route to="/" exact component={Search} />
-          <Route to="/shows/:id" exact component={ShowPage} />
+          <Route path="/" exact component={Search} />
+          <Route path="/shows/:id" component={ShowPage} />
         </Switch>
       </StyledApp>
     );

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import { getSerialRequest } from 'actions/show';
-import { show } from '../../api';
+import ShowPageContent from './ShowPageContent';
 
 class ShowPage extends PureComponent {
   componentWillMount() {
@@ -13,15 +13,15 @@ class ShowPage extends PureComponent {
   }
 
   render() {
-    const { isLoading, serials } = this.props;
-
-    return isLoading ? <p>Loading...</p> : <p>There can be more useful information</p>;
+    const { isLoading, serial } = this.props;
+ 
+    return isLoading ? <p>Loading...</p> : <ShowPageContent {...serial} />;
   }
 }
 
 const mapStateToProps = ({ shows }) => ({
-  serial: show.serial,
-  isLoading: show.serial,
+  serial: shows.serial,
+  isLoading: shows.isLoading,
 });
 
 const mapDispatchToProps = {

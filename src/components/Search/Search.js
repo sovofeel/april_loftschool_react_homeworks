@@ -6,7 +6,7 @@ import { searchSerialRequest } from 'actions/search';
 import ShowPreview from '../ShowPreview';
 
 const SearchWrapper = styled.div`
-  display: flex;
+  display: block;
 `;
 
 class Search extends Component {
@@ -26,24 +26,24 @@ class Search extends Component {
     searchSerialRequest(query);
   };
 
+  handleLoading = () => {
+    const { isLoading, serials } = this.props;
+
+    if (isLoading) {
+      return <p>Loading...</p>;
+    } else {
+      return serials.map(serial => <ShowPreview key={serial.name} {...serial} />);
+    }
+  };
+
   render() {
     const { query } = this.state;
-    const { isLoading, serials } = this.props;
-    const { name, image, summary, _embedded = { cast: [] } } = serials;
-
-    console.log(serials);
 
     return (
       <SearchWrapper>
         <input value={query} onChange={this.handleChange} />
         <button onClick={this.handleClick}>Найти сериал</button>
-        <div className="t-search-result">
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            serials.map(serial => <ShowPreview key={serial.name} {...serial} />)
-          )}
-        </div>
+        <div className="t-search-result">{this.handleLoading()}</div>
       </SearchWrapper>
     );
   }
