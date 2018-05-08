@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { searchSerialRequest } from 'actions/search';
 import ShowPreview from '../ShowPreview';
+import Preloader from '../Preloader';
 
 const SearchWrapper = styled.div`
   display: block;
@@ -16,7 +17,7 @@ class Search extends Component {
 
   handleChange = event => {
     const { value } = event.target;
-    this.setState(state => ({ ...state, query: value }));
+    this.setState(state => ({ query: value }));
   };
 
   handleClick = () => {
@@ -30,7 +31,7 @@ class Search extends Component {
     const { isLoading, serials } = this.props;
 
     if (isLoading) {
-      return <p>Loading...</p>;
+      return <Preloader />;
     } else {
       return serials.map(serial => <ShowPreview key={serial.name} {...serial} />);
     }
